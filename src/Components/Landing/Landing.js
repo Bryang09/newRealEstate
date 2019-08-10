@@ -4,13 +4,14 @@ import Nav from "../Nav/Nav";
 
 class Landing extends Component {
   state = {
-    bgActive: false
+    search: false
   };
   render() {
+    const { search } = this.state;
     return (
       <div className="Landing">
         <Nav />
-        <Hero />
+        <Hero search={search} />
       </div>
     );
   }

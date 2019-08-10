@@ -1,9 +1,16 @@
 import React from "react";
 
 import "./Hero.scss";
+import Info from "./Info/Info";
 
-const Hero = () => {
-  return <div className="Hero" />;
+const Hero = props => {
+  const { search } = props;
+  return (
+    <div className="Hero">
+      <div className={search ? `heroImage search` : "heroImage"} />
+      <Info />
+    </div>
+  );
 };
 
 export default Hero;

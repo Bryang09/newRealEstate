@@ -1,0 +1,45 @@
+$mainColor: #17c77c;
+
+.info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  h2 {
+    font-weight: 400;
+    border-bottom: 0.6px solid #c8c8c8;
+
+    span {
+      color: #7d7979;
+    }
+  }
+
+  h4 {
+    padding: 1.5vh 2vw;
+    margin: 0;
+    background: $mainColor;
+    border-radius: 35px;
+    color: #fff;
+    transition: 0.2s ease;
+
+    &:hover {
+      background: lighten($mainColor, 2%);
+    }
+  }
+}
+
+.pageDesc {
+  width: 80%;
+  height: 20vh;
+
+  h3 {
+    text-align: center;
+    font-weight: 700;
+    color: lighten(#7d7979, 5%);
+
+    span {
+      text-transform: uppercase;
+    }
+  }
+}
