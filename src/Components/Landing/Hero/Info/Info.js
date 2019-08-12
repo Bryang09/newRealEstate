@@ -1,10 +1,16 @@
 import React from "react";
 
+import { Link } from "react-router-dom";
+
 import "./Info.scss";
 
-const Info = () => {
+const Info = props => {
+  const { onSearch, search } = props;
   return (
-    <div className="info">
+    <div
+      className="info"
+      style={!search ? { display: "flex" } : { display: "none" }}
+    >
       <h2>
         Welcome to <span>Finder</span>{" "}
       </h2>
@@ -16,7 +22,9 @@ const Info = () => {
         </h3>
       </div>
 
-      <h4>Start Searching!</h4>
+      <Link to="/search">
+        <h4>Start Searching!</h4>
+      </Link>
     </div>
   );
 };

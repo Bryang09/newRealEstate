@@ -15,16 +15,20 @@ $mainColor: #17c77c;
     }
   }
 
-  h4 {
+  a {
     padding: 1.5vh 2vw;
+    text-decoration: none;
+    color: #fff;
     margin: 0;
     background: $mainColor;
     border-radius: 35px;
     color: #fff;
     transition: 0.2s ease;
-
     &:hover {
       background: lighten($mainColor, 2%);
+    }
+    h4 {
+      margin: 0%;
     }
   }
 }
@@ -40,6 +44,7 @@ $mainColor: #17c77c;
 
     span {
       text-transform: uppercase;
+      color: #17c77c;
     }
   }
 }
