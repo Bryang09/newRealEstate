@@ -44,10 +44,22 @@
 
       .info {
         color: #fff;
-        height: 20%;
+        height: 100%;
         width: 100%;
         background: rgba(0, 0, 0, 0.5);
+        transition: 0.5s ease;
+        opacity: 0;
+
+        &:hover {
+          opacity: 1;
+          background: rgba(0, 0, 0, 0.9);
+        }
       }
     }
   }
+}
+
+#houseLink {
+  margin-top: 2vh;
+  padding: 1vh 3vw;
 }

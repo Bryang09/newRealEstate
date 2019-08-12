@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Nav from "../Nav/Nav";
 
+import { Link } from "react-router-dom";
+
 import "./Search.scss";
 
 class Search extends Component {
@@ -26,7 +28,13 @@ class Search extends Component {
               <div className="imgContainer" key={i}>
                 <div className="img">
                   <div className="info">
-                    <span className="price">{`$${res.price} M`}</span>
+                    <span className="price">
+                      <i>{`$${res.price} M`}</i>{" "}
+                    </span>
+
+                    <Link to={`/home/${i}`} id="houseLink">
+                      Learn More
+                    </Link>
                   </div>
                 </div>
               </div>
