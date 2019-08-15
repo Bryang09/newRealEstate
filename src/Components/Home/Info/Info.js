@@ -2,9 +2,10 @@ import React from "react";
 
 import "./Info.scss";
 
-const HomeInfo = () => {
+const HomeInfo = props => {
+  const { seeMore, more } = props;
   return (
-    <div className="homeInfo">
+    <div className={more ? "homeInfo none" : "homeInfo"}>
       <div className="container">
         <div className="name">
           <h2>Name</h2>
@@ -39,20 +40,20 @@ const HomeInfo = () => {
 
         <div className="buttons">
           <div className="seeMore">
-            <h4>See More!</h4>
+            <h4 onClick={seeMore}>See More!</h4>
           </div>
 
           {/* THIS WILL OPEN THE SHARE MODAL */}
           <div className="share">
             <h4>
-              <i class="fa fa-share" />
+              <i className="fa fa-share" />
             </h4>
           </div>
 
           {/* THIS WILL OPEN THE MAIL MODAL */}
           <div className="mail">
             <h4>
-              <i class="fa fa-envelope" aria-hidden="true" />
+              <i className="fa fa-envelope" aria-hidden="true" />
             </h4>
           </div>
         </div>

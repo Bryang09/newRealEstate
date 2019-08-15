@@ -15,11 +15,13 @@ class Home extends Component {
   render() {
     const { seeMore } = this.state;
 
+    console.log(seeMore);
+
     return (
       <div className="Home">
         <Nav />
-        <HomeHero />
-        <HomeInfo />
+        <HomeHero more={seeMore} />
+        <HomeInfo more={seeMore} seeMore={this.onSeeMore} />
       </div>
     );
   }
