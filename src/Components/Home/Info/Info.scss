@@ -1,0 +1,75 @@
+$mainColor: #4ddbff;
+
+.homeInfo {
+  width: 30vw;
+  display: flex;
+  justify-content: center;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+
+    .label {
+      //   color: #c8c7c8;
+      color: #e8e8e8;
+      letter-spacing: 1.5px;
+    }
+
+    .name {
+      h2 {
+        font-size: 35px;
+      }
+    }
+
+    .hardInfo {
+      display: flex;
+
+      .rooms {
+        width: 60%;
+      }
+    }
+  }
+}
+
+.buttons {
+  display: flex;
+
+  .seeMore {
+    h4 {
+      padding: 2vh 2vw;
+      background: $mainColor;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 35px;
+    }
+  }
+
+  .share {
+    margin: auto 4vw;
+  }
+
+  .mail {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    i {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      background: $mainColor;
+      box-shadow: 1px 1px 17px $mainColor;
+      transition: 1s ease;
+      cursor: pointer;
+
+      &:hover {
+        box-shadow: none;
+      }
+    }
+  }
+}

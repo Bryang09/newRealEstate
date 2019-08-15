@@ -1,4 +1,5 @@
-$mainColor: #17c77c;
+// $mainColor: #17c77c;
+$mainColor: #4ddbff;
 
 .info {
   display: flex;
@@ -44,7 +45,7 @@ $mainColor: #17c77c;
 
     span {
       text-transform: uppercase;
-      color: #17c77c;
+      color: $mainColor;
     }
   }
 }
