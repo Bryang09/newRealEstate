@@ -6,11 +6,12 @@ import "./Nav.scss";
 
 class Nav extends Component {
   render() {
+    const { color } = this.props;
     return (
       <div className="Nav">
         <div>
           <Link to="/">
-            <h3>
+            <h3 style={{ color: `#${color}` }}>
               Finder <span>.</span>{" "}
             </h3>
           </Link>

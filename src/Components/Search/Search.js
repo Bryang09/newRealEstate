@@ -21,7 +21,7 @@ class Search extends Component {
 
     return (
       <div className="Search">
-        <Nav />
+        <Nav color="333" />
         <div className="imgGalleryContainer">
           {images.map((res, i) => {
             return (

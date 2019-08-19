@@ -17,7 +17,7 @@ class Landing extends Component {
 
     return (
       <div className="Landing">
-        <Nav />
+        <Nav color="fff" />
         <Hero search={search} onSearch={this.onSearch} />
       </div>
     );
