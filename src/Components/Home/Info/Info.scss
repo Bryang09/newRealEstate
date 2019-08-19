@@ -5,19 +5,19 @@ $mainColor: #4ddbff;
   display: flex;
   justify-content: center;
   // animation: info 1s linear;
-  transition: 0.7s ease-in-out;
+  // transition: 0.7s ease-in-out;
 
   .container {
     display: flex;
     flex-direction: column;
     width: 80%;
-    animation: info 1s ease;
+    // animation: info 1s ease;
+    translate: 2s ease;
 
     //
-
     .label {
       //   color: #c8c7c8;
-      color: #e8e8e8;
+      color: #ababab;
       letter-spacing: 1.5px;
     }
 

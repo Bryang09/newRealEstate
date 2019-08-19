@@ -21,7 +21,7 @@ class Home extends Component {
     console.log(seeMore);
 
     return (
-      <div className="Home">
+      <div className={seeMore ? "Home Scroll" : "Home"}>
         <Nav />
 
         {/* {seeMore ? <FullHero /> : <HomeHero more={seeMore} />} */}
