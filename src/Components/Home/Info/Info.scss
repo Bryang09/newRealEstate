@@ -4,11 +4,16 @@ $mainColor: #4ddbff;
   width: 30vw;
   display: flex;
   justify-content: center;
+  // animation: info 1s linear;
+  transition: 0.7s ease-in-out;
 
   .container {
     display: flex;
     flex-direction: column;
     width: 80%;
+    animation: info 1s ease;
+
+    //
 
     .label {
       //   color: #c8c7c8;
@@ -75,5 +80,21 @@ $mainColor: #4ddbff;
 }
 
 .none {
-  display: none;
+  // display: none;
+  opacity: 0;
+  width: 0;
+  position: absolute;
+  z-index: -50;
+  transition: 1s ease;
+  visibility: hidden;
+}
+
+@keyframes info {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }

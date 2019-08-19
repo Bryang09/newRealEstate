@@ -3,7 +3,7 @@ import React from "react";
 import "./Info.scss";
 
 const HomeInfo = props => {
-  const { seeMore, more } = props;
+  const { seeMore, more, onMail, onShare } = props;
   return (
     <div className={more ? "homeInfo none" : "homeInfo"}>
       <div className="container">
@@ -46,14 +46,18 @@ const HomeInfo = props => {
           {/* THIS WILL OPEN THE SHARE MODAL */}
           <div className="share">
             <h4>
-              <i className="fa fa-share" />
+              <i className="fa fa-share" onClick={onShare} />
             </h4>
           </div>
 
           {/* THIS WILL OPEN THE MAIL MODAL */}
           <div className="mail">
             <h4>
-              <i className="fa fa-envelope" aria-hidden="true" />
+              <i
+                className="fa fa-envelope"
+                aria-hidden="true"
+                onClick={onMail}
+              />
             </h4>
           </div>
         </div>

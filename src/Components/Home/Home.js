@@ -4,6 +4,7 @@ import HomeHero from "./Hero/Hero";
 import HomeInfo from "./Info/Info";
 
 import "./Home.scss";
+import FullHero from "./Hero/FullHero/FullHero";
 
 class Home extends Component {
   state = {
@@ -12,6 +13,8 @@ class Home extends Component {
 
   onSeeMore = () => this.setState({ seeMore: !this.state.seeMore });
 
+  onMail = () => alert("Mail");
+  onShare = () => alert("Share");
   render() {
     const { seeMore } = this.state;
 
@@ -20,8 +23,15 @@ class Home extends Component {
     return (
       <div className="Home">
         <Nav />
-        <HomeHero more={seeMore} />
-        <HomeInfo more={seeMore} seeMore={this.onSeeMore} />
+
+        {/* {seeMore ? <FullHero /> : <HomeHero more={seeMore} />} */}
+        <HomeHero more={seeMore} seeMore={this.onSeeMore} />
+        <HomeInfo
+          more={seeMore}
+          seeMore={this.onSeeMore}
+          onMail={this.onMail}
+          onShare={this.onShare}
+        />
       </div>
     );
   }
