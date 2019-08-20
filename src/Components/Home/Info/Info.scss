@@ -89,6 +89,10 @@ $mainColor: #4ddbff;
   visibility: hidden;
 }
 
+.section {
+  height: 15vh;
+}
+
 @keyframes info {
   0% {
     opacity: 0;

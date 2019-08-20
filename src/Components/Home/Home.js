@@ -4,7 +4,6 @@ import HomeHero from "./Hero/Hero";
 import HomeInfo from "./Info/Info";
 
 import "./Home.scss";
-import FullHero from "./Hero/FullHero/FullHero";
 
 class Home extends Component {
   state = {

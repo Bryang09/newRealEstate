@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import "./Info.scss";
 
 const Info = props => {
-  const { onSearch, search } = props;
+  const { search } = props;
   return (
     <div
       className="info"

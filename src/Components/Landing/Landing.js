@@ -7,18 +7,13 @@ class Landing extends Component {
     search: false
   };
 
-  onSearch = () => {
-    this.setState({ search: true });
-  };
   render() {
     const { search } = this.state;
-
-    console.log(search);
 
     return (
       <div className="Landing">
         <Nav color="fff" />
-        <Hero search={search} onSearch={this.onSearch} />
+        <Hero search={search} />
       </div>
     );
   }

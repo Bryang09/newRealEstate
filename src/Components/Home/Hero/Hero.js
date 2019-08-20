@@ -16,7 +16,7 @@ const HomeHero = props => {
   return more ? (
     images.map((res, i) => {
       return (
-        <div className={`homeHero full ${res.src}`}>
+        <div className={` ${res.src} homeHero full`} key={i}>
           <h3>
             Picture {i + 1} of {images.length}
           </h3>
@@ -29,7 +29,6 @@ const HomeHero = props => {
   ) : (
     <div className="homeHero" />
   );
-  //  <div className={more ? "homeHero full" : "homeHero"} />
 };
 
 export default HomeHero;

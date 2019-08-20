@@ -4,11 +4,11 @@ import "./Hero.scss";
 import Info from "./Info/Info";
 
 const Hero = props => {
-  const { search, onSearch } = props;
+  const { search } = props;
   return (
     <div className="Hero">
       <div className={search ? `heroImage search` : "heroImage"} />
-      <Info onSearch={onSearch} search={search} />
+      <Info search={search} />
     </div>
   );
 };

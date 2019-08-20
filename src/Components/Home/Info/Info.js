@@ -1,5 +1,7 @@
 import React from "react";
 
+import Buttons from "./Buttons";
+
 import "./Info.scss";
 
 const HomeInfo = props => {
@@ -13,54 +15,32 @@ const HomeInfo = props => {
         </div>
 
         <div className="hardInfo">
-          <div className="rooms">
+          <div className="rooms section">
             <h4 className="label">Rooms</h4>
             <h4 className="value">6</h4>
           </div>
-          <div className="bathRooms">
+          <div className="bathRooms section">
             <h4 className="label">Bathrooms</h4>
             <h4 className="value">9</h4>
           </div>
         </div>
 
-        <div className="location">
+        <div className="location section">
           <h4 className="label">Location</h4>
           <h4 className="value">Los Angeles, California</h4>
         </div>
 
-        <div className="year">
+        <div className="year section">
           <h4 className="label">Year Built</h4>
           <h4 className="value">2014</h4>
         </div>
 
-        <div className="price">
+        <div className="price section">
           <h4 className="label">Price</h4>
           <h4 className="value">$ 20M</h4>
         </div>
 
-        <div className="buttons">
-          <div className="seeMore">
-            <h4 onClick={seeMore}>See More!</h4>
-          </div>
-
-          {/* THIS WILL OPEN THE SHARE MODAL */}
-          <div className="share">
-            <h4>
-              <i className="fa fa-share" onClick={onShare} />
-            </h4>
-          </div>
-
-          {/* THIS WILL OPEN THE MAIL MODAL */}
-          <div className="mail">
-            <h4>
-              <i
-                className="fa fa-envelope"
-                aria-hidden="true"
-                onClick={onMail}
-              />
-            </h4>
-          </div>
-        </div>
+        <Buttons onMail={onMail} onShare={onShare} seeMore={seeMore} />
       </div>
     </div>
   );
