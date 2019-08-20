@@ -4,6 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 
   .imgGalleryContainer {
     display: flex;
@@ -51,4 +52,16 @@
 #houseLink {
   margin-top: 2vh;
   padding: 1vh 3vw;
+}
+
+.location {
+  margin-top: 5vh;
+
+  h3 {
+    color: #cecece;
+
+    span {
+      color: #333;
+    }
+  }
 }

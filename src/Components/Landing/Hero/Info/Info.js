@@ -38,7 +38,6 @@ const Info = props => {
       <button type="submit" style={{ opacity: 0 }} />
 
       <Link
-        type="submit"
         to={`/search/${zip}`}
         className={zip === null || zip.length < 5 ? "link hidden" : "link"}
       >

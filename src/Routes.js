@@ -9,7 +9,10 @@ const Routes = () => {
   return (
     <Switch>
       <Route exact path="/" component={Landing} />
-      <Route path="/search/:zip" component={Search} />
+      <Route
+        path="/search/:zip"
+        render={props => <Search key={props.match.params.zip} {...props} />}
+      />
       <Route path="/home/:id" component={Home} />
     </Switch>
   );
