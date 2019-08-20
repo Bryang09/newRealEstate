@@ -4,16 +4,21 @@ import Nav from "../Nav/Nav";
 
 class Landing extends Component {
   state = {
-    search: false
+    search: false,
+    zip: null
   };
 
+  onZip = e => this.setState({ zip: e.target.value });
+
   render() {
-    const { search } = this.state;
+    const { search, zip } = this.state;
+
+    console.log(zip);
 
     return (
       <div className="Landing">
         <Nav color="fff" />
-        <Hero search={search} />
+        <Hero search={search} zip={zip} onZip={this.onZip} />
       </div>
     );
   }

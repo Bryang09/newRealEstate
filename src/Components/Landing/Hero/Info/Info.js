@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import "./Info.scss";
 
 const Info = props => {
-  const { search } = props;
+  const { search, zip, onZip } = props;
   return (
     <div
       className="info"
@@ -22,7 +22,26 @@ const Info = props => {
         </h3>
       </div>
 
-      <Link to="/search">
+      <input
+        type="number"
+        value={zip}
+        placeholder="Type Zip Code"
+        onChange={onZip}
+        style={
+          zip === null || zip.length === 0
+            ? { border: "2px solid #4ddbff" }
+            : zip.length < 5
+            ? { border: "2px solid #ff6e6e" }
+            : { border: "2px solid #a0f190" }
+        }
+      />
+      <button type="submit" style={{ opacity: 0 }} />
+
+      <Link
+        type="submit"
+        to={`/search/${zip}`}
+        className={zip === null || zip.length < 5 ? "link hidden" : "link"}
+      >
         <h4>Start Searching!</h4>
       </Link>
     </div>
