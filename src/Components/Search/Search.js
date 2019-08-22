@@ -4,17 +4,19 @@ import Nav from "../Nav/Nav";
 import { Link } from "react-router-dom";
 
 import "./Search.scss";
+import Gallery from "./Gallery/Gallery";
 
 class Search extends Component {
   state = {
     images: [
       { src: "bg2.png", price: 10.8, rooms: 7, rr: 5, hovered: false },
-      { src: "blue", price: 10.8, rooms: 7, rr: 5, hovered: false },
-      { src: "green", price: 10.8, rooms: 7, rr: 5, hovered: false },
-      { src: "gray", price: 10.8, rooms: 7, rr: 5, hovered: false },
-      { src: "yellow", price: 10.8, rooms: 7, rr: 5, hovered: false }
+      { src: "blue", price: 9.8, rooms: 7, rr: 5, hovered: false },
+      { src: "green", price: 2.8, rooms: 7, rr: 5, hovered: false },
+      { src: "gray", price: 0.8, rooms: 7, rr: 5, hovered: false },
+      { src: "yellow", price: 1.8, rooms: 7, rr: 5, hovered: false }
     ],
-    zip: null
+    zip: null,
+    sort: "normal"
   };
 
   componentDidMount = () => {
@@ -27,11 +29,22 @@ class Search extends Component {
     );
   };
 
-  render() {
-    const { images, zip } = this.state;
+  onLowToHigh = () => this.setState({ sort: "low" });
+  onHighToLow = () => this.setState({ sort: "high" });
 
-    console.log(isNaN(this.props.match.params.zip));
-    console.log(this.state.zip);
+  render() {
+    const { images, zip, sort } = this.state;
+
+    const info =
+      sort === "normal"
+        ? images
+        : sort === "low"
+        ? images.sort((a, b) => parseFloat(a.price) - parseFloat(b.price))
+        : images.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
+
+    console.log(sort);
+
+    console.log(info);
 
     return (
       <div className="Search">
@@ -43,30 +56,24 @@ class Search extends Component {
         ) : (
           <div className="Search">
             <Nav color="333" />
-            <div className="location">
-              <h3>
-                Searching Near <span> Pasadena, TX</span>
-              </h3>
+            <div className="top">
+              <div className="sort">
+                <h4 className="lowToHigh option" onClick={this.onLowToHigh}>
+                  Low to High
+                </h4>
+                <h4 className="highToLow option" onClick={this.onHighToLow}>
+                  High to Low
+                </h4>
+              </div>
+              <div className="location">
+                <h3>
+                  Searching Near <span> Pasadena, TX</span>
+                </h3>
+              </div>
             </div>
-            <div className="imgGalleryContainer">
-              {images.map((res, i) => {
-                return (
-                  <div className="imgContainer" key={i}>
-                    <div className="img">
-                      <div className="info">
-                        <span className="price">
-                          <i>{`$${res.price} M`}</i>{" "}
-                        </span>
 
-                        <Link to={`/home/${i}`} id="houseLink">
-                          Learn More
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-              }
+            <div className="imgGalleryContainer">
+              <Gallery info={info} />
             </div>
           </div>
         )}
