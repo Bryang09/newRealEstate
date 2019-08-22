@@ -1,19 +1,19 @@
 import React, { Component } from "react";
-import Nav from "../Nav/Nav";
 
 import { Link } from "react-router-dom";
 
+import Main from "./Main/Main";
+
 import "./Search.scss";
-import Gallery from "./Gallery/Gallery";
 
 class Search extends Component {
   state = {
     images: [
-      { src: "bg2.png", price: 10.8, rooms: 7, rr: 5, hovered: false },
-      { src: "blue", price: 9.8, rooms: 7, rr: 5, hovered: false },
-      { src: "green", price: 2.8, rooms: 7, rr: 5, hovered: false },
-      { src: "gray", price: 0.8, rooms: 7, rr: 5, hovered: false },
-      { src: "yellow", price: 1.8, rooms: 7, rr: 5, hovered: false }
+      { src: "bg2.png", price: 10.8, rooms: 7, rr: 5, size: 30 },
+      { src: "blue", price: 9.8, rooms: 7, rr: 5, size: 40 },
+      { src: "green", price: 2.8, rooms: 7, rr: 5, size: 10 },
+      { src: "gray", price: 0.8, rooms: 7, rr: 5, size: 180 },
+      { src: "yellow", price: 1.8, rooms: 7, rr: 5, size: 70 }
     ],
     zip: null,
     sort: "normal"
@@ -31,6 +31,8 @@ class Search extends Component {
 
   onLowToHigh = () => this.setState({ sort: "low" });
   onHighToLow = () => this.setState({ sort: "high" });
+  onSmallToLarge = () => this.setState({ sort: "small" });
+  onLargeToSmall = () => this.setState({ sort: "large" });
 
   render() {
     const { images, zip, sort } = this.state;
@@ -40,9 +42,13 @@ class Search extends Component {
         ? images
         : sort === "low"
         ? images.sort((a, b) => parseFloat(a.price) - parseFloat(b.price))
-        : images.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
-
-    console.log(sort);
+        : sort === "high"
+        ? images.sort((a, b) => parseFloat(b.price) - parseFloat(a.price))
+        : sort === "small"
+        ? images.sort((a, b) => parseFloat(a.size) - parseFloat(b.size))
+        : sort === "large"
+        ? images.sort((a, b) => parseFloat(b.size) - parseFloat(a.size))
+        : null;
 
     console.log(info);
 
@@ -54,28 +60,13 @@ class Search extends Component {
             <Link to="/">Return</Link>{" "}
           </>
         ) : (
-          <div className="Search">
-            <Nav color="333" />
-            <div className="top">
-              <div className="sort">
-                <h4 className="lowToHigh option" onClick={this.onLowToHigh}>
-                  Low to High
-                </h4>
-                <h4 className="highToLow option" onClick={this.onHighToLow}>
-                  High to Low
-                </h4>
-              </div>
-              <div className="location">
-                <h3>
-                  Searching Near <span> Pasadena, TX</span>
-                </h3>
-              </div>
-            </div>
-
-            <div className="imgGalleryContainer">
-              <Gallery info={info} />
-            </div>
-          </div>
+          <Main
+            info={info}
+            low={this.onLowToHigh}
+            high={this.onHighToLow}
+            small={this.onSmallToLarge}
+            large={this.onLargeToSmall}
+          />
         )}
       </div>
     );
