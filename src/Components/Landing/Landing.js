@@ -17,7 +17,6 @@ class Landing extends Component {
 
     return (
       <div className="Landing">
-        <h1>HELP!!!</h1>
         <Nav color="fff" />
         <Hero search={search} zip={zip} onZip={this.onZip} />
       </div>
