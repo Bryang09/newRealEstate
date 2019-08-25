@@ -24,16 +24,16 @@ const Gallery = props => {
             <div className="info">
               <div className="infoContainer">
                 <div className="information">
-                  <h4>${res.price}</h4>
+                  <h3>${res.price}</h3>
                 </div>
                 <div className="information">
-                  <h4>{res.size} sq.ft</h4>
+                  <h3>{res.size} sq.ft</h3>
                 </div>
                 <div className="information">
-                  <h4>
-                    <FontAwesomeIcon icon={faHeart} />
+                  <h3>
+                    <FontAwesomeIcon icon={faHeart} /> {""}
                     {res.likes}
-                  </h4>
+                  </h3>
                 </div>
               </div>
             </div>

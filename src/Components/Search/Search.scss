@@ -32,6 +32,10 @@
         background: #efefef no-repeat center center / cover;
       }
 
+      a {
+        text-decoration: none;
+      }
+
       .info {
         color: #fff;
         height: 100%;
@@ -56,8 +60,11 @@
           .information {
             width: 30%;
             margin: auto 1.5%;
-
             text-align: center;
+
+            svg {
+              color: #ff6868;
+            }
           }
         }
       }
