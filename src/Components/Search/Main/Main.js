@@ -1,9 +1,9 @@
 import React from "react";
 import Nav from "../../Nav/Nav";
-import Gallery from "../Gallery/Gallery";
+import Gallery from "./Gallery/Gallery";
 
 const Main = props => {
-  const { info, low, high, small, large } = props;
+  const { info, low, high, small, large, houses } = props;
   return (
     <div className="Search">
       <Nav color="333" />
@@ -31,7 +31,7 @@ const Main = props => {
       </div>
 
       <div className="imgGalleryContainer">
-        <Gallery info={info} />
+        <Gallery info={info} houses={houses} />
       </div>
     </div>
   );
