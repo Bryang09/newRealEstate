@@ -3,12 +3,12 @@
   width: 100vw;
   height: 100vh;
   transition: 1s ease;
-}
-
-.Scroll {
-  overflow-x: auto;
 
   &::-webkit-scrollbar {
     display: none;
   }
+}
+
+.Scroll {
+  overflow-x: auto;
 }
