@@ -15,15 +15,14 @@ const HomeHero = props => {
         key={i}
         style={{
           backgroundImage: `url(${house.img[i]})`
-          // minWidth: "100vw",
-          // transition: "1s ease"
         }}
       >
-        <h3>
-          Picture {i + 1} of {images.length}
-        </h3>
-        <div className="escapeButton">
-          <h4 onClick={seeMore}>X</h4>
+        <div
+          className="escapeButton"
+          onClick={seeMore}
+          style={more ? { opacity: 1 } : { opacity: 0 }}
+        >
+          <h4>X</h4>
         </div>
       </div>
     );
