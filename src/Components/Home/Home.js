@@ -11,7 +11,8 @@ class Home extends Component {
   state = {
     seeMore: false,
     id: null,
-    house: null
+    house: null,
+    liked: ""
   };
 
   componentDidMount = () => {
@@ -23,6 +24,10 @@ class Home extends Component {
       .get(`/api/houses/${id}`)
       .then(res => this.setState({ house: res.data }))
       .catch(err => console.log(err));
+
+    localStorage.Liked
+      ? this.setState({ liked: localStorage.getItem("Liked") })
+      : this.setState({ liked: false });
   };
 
   onSeeMore = () => this.setState({ seeMore: !this.state.seeMore });
@@ -31,9 +36,8 @@ class Home extends Component {
   onShare = () => alert("Share");
 
   render() {
-    const { seeMore, id, house } = this.state;
+    const { seeMore, id, house, liked } = this.state;
 
-    console.log(seeMore);
     return (
       <div
         className={"Home"}
@@ -57,6 +61,7 @@ class Home extends Component {
           onMail={this.onMail}
           onShare={this.onShare}
           house={house !== null ? house : "Loading"}
+          liked={liked}
         />
       </div>
     );

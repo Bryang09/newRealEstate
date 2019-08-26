@@ -6,6 +6,7 @@ import axios from "axios";
 import Main from "./Main/Main";
 
 import "./Search.scss";
+import { LOCAL_REQUEST } from "../../keys";
 
 class Search extends Component {
   state = {
@@ -24,7 +25,7 @@ class Search extends Component {
     );
 
     axios
-      .get("/api/houses")
+      .get(LOCAL_REQUEST)
       .then(res => this.setState({ houses: res.data }))
       .catch(err => console.log(err));
   };

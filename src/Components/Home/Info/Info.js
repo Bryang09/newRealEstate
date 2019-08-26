@@ -8,8 +8,8 @@ import Buttons from "./Buttons";
 import "./Info.scss";
 
 const HomeInfo = props => {
-  const { seeMore, more, onMail, onShare, house } = props;
-  console.log(house);
+  const { seeMore, more, onMail, onShare, house, liked } = props;
+  console.log(`Liked ${liked}`);
 
   return (
     <div className={more ? "homeInfo none" : "homeInfo"}>
@@ -18,14 +18,16 @@ const HomeInfo = props => {
         style={more ? { color: "#fff" } : { color: "" }}
       >
         <div className="name">
-          <h2>
-            {house.name}{" "}
-            <span style={{ fontSize: "26px" }}>
-              <FontAwesomeIcon icon={faHeart} color="red" />
+          <h2>{house.name} </h2>
+          <h4>
+            {" "}
+            <span style={{ marginRight: "3vw" }}>
+              <FontAwesomeIcon icon={faHeart} color={liked ? "red" : "#333"} />
+              {""}
               {house.likes}
             </span>
-          </h2>
-          <h4>{house.size} sqft</h4>
+            {house.size} sqft
+          </h4>
         </div>
 
         <div className="hardInfo">
