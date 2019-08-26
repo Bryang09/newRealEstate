@@ -1,21 +1,21 @@
 .Nav {
   position: absolute;
-  top: 0;
+  top: 5vh;
   left: 0;
   z-index: 10;
-  height: 10vh;
   margin-left: 6vw;
   background: rgba(0, 0, 0, 0);
 
   a {
     text-decoration: none;
     color: #fff;
+    // margin: 10vh auto 0;
 
     h3 {
       font-size: 30px;
 
       span {
-        font-size: 60px;
+        font-size: 30px;
       }
     }
   }

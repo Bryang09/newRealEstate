@@ -33,13 +33,21 @@ class Home extends Component {
   render() {
     const { seeMore, id, house } = this.state;
 
-    console.log(id);
-
+    console.log(seeMore);
     return (
       <div className={seeMore ? "Home Scroll" : "Home"}>
         <Nav />
 
-        <HomeHero more={seeMore} seeMore={this.onSeeMore} />
+        {house !== null ? (
+          <HomeHero
+            more={seeMore}
+            seeMore={this.onSeeMore}
+            house={house !== null ? house : null}
+          />
+        ) : (
+          <h1>Loading</h1>
+        )}
+
         <HomeInfo
           more={seeMore}
           seeMore={this.onSeeMore}
