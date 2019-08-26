@@ -37,6 +37,7 @@ $mainColor: #4ddbff;
 
   .hidden {
     opacity: 0;
+    pointer-events: none;
   }
 
   input[type="number"] {

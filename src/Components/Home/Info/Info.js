@@ -13,7 +13,10 @@ const HomeInfo = props => {
 
   return (
     <div className={more ? "homeInfo none" : "homeInfo"}>
-      <div className="container">
+      <div
+        className="container"
+        style={more ? { color: "#fff" } : { color: "" }}
+      >
         <div className="name">
           <h2>
             {house.name}{" "}

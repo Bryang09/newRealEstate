@@ -35,7 +35,11 @@ class Home extends Component {
 
     console.log(seeMore);
     return (
-      <div className={seeMore ? "Home Scroll" : "Home"}>
+      <div
+        className={"Home"}
+        // className={seeMore ? "Home Scroll" : "Home"}
+        style={seeMore ? { overflowX: "auto" } : { overflowX: "hidden" }}
+      >
         <Nav />
 
         {house !== null ? (

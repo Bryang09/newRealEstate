@@ -1,9 +1,18 @@
 .homeHero {
-  width: 70vw;
+  min-width: 100vw;
   height: 100vh;
-  background: url("https://photos.zillowstatic.com/cc_ft_1536/IS2rdjd59xi2ro0000000000.webp")
-    no-repeat center center / cover;
+
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
   transition: 0.7s ease-in-out;
+  animation: normal 1s linear;
+
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
 
   h3 {
     text-align: center;
@@ -15,10 +24,14 @@
 .full {
   min-width: 100vw;
   height: 100vh;
-  background: url("https://photos.zillowstatic.com/cc_ft_1536/IS2rdjd59xi2ro0000000000.webp")
-    no-repeat center center / cover;
-  transition: 0.7s ease-in-out;
-  transition-delay: 2s;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  z-index: 2;
+  position: static;
+  top: 0;
+  left: 0;
 }
 
 .escapeButton {
@@ -28,4 +41,13 @@
   z-index: 10;
   cursor: pointer;
   color: #fff;
+}
+
+@keyframes normal {
+  0% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: visible;
+  }
 }

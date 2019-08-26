@@ -4,19 +4,23 @@ $mainColor: #4ddbff;
   width: 30vw;
   display: flex;
   justify-content: center;
-  // animation: info 1s linear;
-  // transition: 0.7s ease-in-out;
+  opacity: 1;
+  transition: 0.4s linear;
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #fff;
+  height: 100vh;
+  animation: 2s infoReveal linear forwards;
 
   .container {
     display: flex;
     flex-direction: column;
     width: 80%;
-    // animation: info 1s ease;
     translate: 2s ease;
 
-    //
     .label {
-      //   color: #c8c7c8;
       color: #ababab;
       letter-spacing: 1.5px;
     }
@@ -80,13 +84,8 @@ $mainColor: #4ddbff;
 }
 
 .none {
-  // display: none;
-  opacity: 0;
-  width: 0;
-  position: absolute;
-  z-index: -50;
-  transition: 1s ease;
-  visibility: hidden;
+  pointer-events: none;
+  animation: 2s info linear forwards;
 }
 
 .section {
@@ -95,9 +94,25 @@ $mainColor: #4ddbff;
 
 @keyframes info {
   0% {
+    transform: translateX(0);
+  }
+
+  90% {
+    transform: translateX(50vw);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes infoReveal {
+  0% {
+    transform: translateX(50vw);
     opacity: 0;
   }
 
+  90% {
+    transform: translateX(0);
+  }
   100% {
     opacity: 1;
   }

@@ -12,7 +12,11 @@ const HomeHero = props => {
       <div
         className={`homeHero full`}
         key={i}
-        style={{ backgroundImage: `url(${house.img[i]})` }}
+        style={{
+          backgroundImage: `url(${house.img[i]})`
+          // minWidth: "100vw",
+          // transition: "1s ease"
+        }}
       >
         {/* <h3>
             Picture {i + 1} of {res.length}
