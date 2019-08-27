@@ -7,8 +7,9 @@ const HomeHero = props => {
 
   const images = house.img;
 
+  console.log(images);
+
   const result = images.map((res, i) => {
-    console.log(house.img.length);
     return (
       <div
         className={`homeHero full`}
