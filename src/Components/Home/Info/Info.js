@@ -30,9 +30,11 @@ const HomeInfo = props => {
     />
   );
 
-  const filter = alreadyLiked.filter(res => res === id);
+  const filter =
+    alreadyLiked !== null ? alreadyLiked.filter(res => res === id) : null;
   console.log(filter == id);
   console.log(filter);
+  console.log(alreadyLiked);
   return (
     <div className={more ? "homeInfo none" : "homeInfo"}>
       <div

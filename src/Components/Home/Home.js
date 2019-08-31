@@ -8,26 +8,33 @@ import axios from "axios";
 import "./Home.scss";
 import { LOCAL_REQUEST } from "../../keys";
 
+const alreadyLiked = JSON.parse(localStorage.getItem("ID"));
+
 class Home extends Component {
   state = {
     seeMore: false,
     id: null,
     house: null,
-    housesLiked: []
+    housesLiked: [],
+    liked: []
   };
 
-  componentDidMount = () => {
+  onGetRequest = () => {
     const id = this.props.match.params.id;
-
-    const theHousesLiked = JSON.parse(localStorage.getItem("ID"));
-    // localStorage.clear();
-
-    this.setState({ housesLiked: theHousesLiked });
 
     axios
       .get(`${LOCAL_REQUEST}/${id}`)
       .then(res => this.setState({ house: res.data }))
       .catch(err => console.log(err));
+  };
+
+  componentDidMount = () => {
+    const theHousesLiked = JSON.parse(localStorage.getItem("ID"));
+    // localStorage.clear();
+
+    this.setState({ housesLiked: theHousesLiked });
+
+    this.onGetRequest();
   };
 
   onSeeMore = () => this.setState({ seeMore: !this.state.seeMore });
@@ -49,26 +56,29 @@ class Home extends Component {
         { headers: { "Content-Type": "application/json" } }
       )
 
-      .then(
-        () =>
-          this.setState(
-            housesLiked === null || housesLiked === []
-              ? { housesLiked: [id] }
-              : { housesLiked: [...this.state.housesLiked, id] }
-          ),
-        localStorage.setItem("ID", JSON.stringify(housesLiked))
+      .then(() =>
+        this.setState(
+          housesLiked === null || housesLiked === []
+            ? { housesLiked: [id], liked: true }
+            : { housesLiked: [...this.state.housesLiked, id], liked: true },
+          this.onAddToLocalStorage,
+          this.onGetRequest()
+        )
       )
       .catch(err => console.log(err));
-
-    localStorage.setItem("Liked", true);
   };
 
-  onAddToLocalStorage = () => {};
+  onAddToLocalStorage = () => {
+    const { housesLiked } = this.state;
+    localStorage.setItem("ID", JSON.stringify(housesLiked));
+  };
 
   render() {
-    const { seeMore, house } = this.state;
+    const { seeMore, house, liked, housesLiked } = this.state;
 
     const alreadyLiked = JSON.parse(localStorage.getItem("ID"));
+
+    console.log(house);
 
     return (
       <div
@@ -95,7 +105,7 @@ class Home extends Component {
           house={house !== null ? house : "Loading"}
           onLike={this.onLike}
           id={this.props.match.params.id}
-          alreadyLiked={alreadyLiked}
+          alreadyLiked={housesLiked}
         />
       </div>
     );
