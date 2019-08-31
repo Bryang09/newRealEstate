@@ -51,8 +51,6 @@ class Search extends Component {
         ? houses.sort((a, b) => parseFloat(b.size) - parseFloat(a.size))
         : null;
 
-    console.log(info);
-
     return (
       <div className="Search">
         {zip === false ? (

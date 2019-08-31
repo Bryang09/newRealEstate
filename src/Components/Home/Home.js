@@ -13,22 +13,21 @@ class Home extends Component {
     seeMore: false,
     id: null,
     house: null,
-    liked: ""
+    housesLiked: []
   };
 
   componentDidMount = () => {
     const id = this.props.match.params.id;
 
-    this.setState({ id });
+    const theHousesLiked = JSON.parse(localStorage.getItem("ID"));
+    // localStorage.clear();
+
+    this.setState({ housesLiked: theHousesLiked });
 
     axios
-      .get(`/api/houses/${id}`)
+      .get(`${LOCAL_REQUEST}/${id}`)
       .then(res => this.setState({ house: res.data }))
       .catch(err => console.log(err));
-
-    localStorage.Liked
-      ? this.setState({ liked: localStorage.getItem("Liked") })
-      : this.setState({ liked: false });
   };
 
   onSeeMore = () => this.setState({ seeMore: !this.state.seeMore });
@@ -36,11 +35,12 @@ class Home extends Component {
   onMail = () => alert("Mail");
   onShare = () => alert("Share");
 
-  onLike = () => {
-    const { house } = this.state;
-    const id = this.props.match.params.id;
-    const likes = house.likes;
-    const updatedLikes = likes + 1;
+  onLike = e => {
+    e.preventDefault();
+    const { house, housesLiked } = this.state;
+    let id = this.props.match.params.id;
+    let likes = house.likes;
+    let updatedLikes = likes + 1;
 
     axios
       .put(
@@ -49,20 +49,26 @@ class Home extends Component {
         { headers: { "Content-Type": "application/json" } }
       )
 
-      .then(() =>
-        this.setState(state => ({
-          house: Object.assign({}, state.house, {
-            likes: this.state.house.likes + 1
-          })
-        }))
+      .then(
+        () =>
+          this.setState(
+            housesLiked === null || housesLiked === []
+              ? { housesLiked: [id] }
+              : { housesLiked: [...this.state.housesLiked, id] }
+          ),
+        localStorage.setItem("ID", JSON.stringify(housesLiked))
       )
       .catch(err => console.log(err));
+
+    localStorage.setItem("Liked", true);
   };
 
-  render() {
-    const { seeMore, id, house, liked } = this.state;
+  onAddToLocalStorage = () => {};
 
-    console.log(liked);
+  render() {
+    const { seeMore, house } = this.state;
+
+    const alreadyLiked = JSON.parse(localStorage.getItem("ID"));
 
     return (
       <div
@@ -87,8 +93,9 @@ class Home extends Component {
           onMail={this.onMail}
           onShare={this.onShare}
           house={house !== null ? house : "Loading"}
-          liked={liked}
           onLike={this.onLike}
+          id={this.props.match.params.id}
+          alreadyLiked={alreadyLiked}
         />
       </div>
     );

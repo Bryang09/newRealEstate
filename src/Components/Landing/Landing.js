@@ -13,8 +13,6 @@ class Landing extends Component {
   render() {
     const { search, zip } = this.state;
 
-    console.log(zip);
-
     return (
       <div className="Landing">
         <Nav color="fff" />

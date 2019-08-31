@@ -7,11 +7,7 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 const Gallery = props => {
   const { info, houses } = props;
 
-  console.log(info);
-
   const results = info.map((res, i) => {
-    console.log(res.img[0]);
-
     return (
       <div className="imgContainer" key={i}>
         <div

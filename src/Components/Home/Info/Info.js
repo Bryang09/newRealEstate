@@ -8,10 +8,31 @@ import Buttons from "./Buttons";
 import "./Info.scss";
 
 const HomeInfo = props => {
-  const { seeMore, more, onMail, onShare, house, liked, onLike } = props;
-  console.log(`Liked ${liked}`);
-  console.log(house);
+  const {
+    seeMore,
+    more,
+    onMail,
+    onShare,
+    house,
+    onLike,
+    id,
+    alreadyLiked
+  } = props;
 
+  const isLiked = <FontAwesomeIcon icon={faHeart} color={"red"} />;
+
+  const notLiked = (
+    <FontAwesomeIcon
+      icon={faHeart}
+      color={"#333"}
+      onClick={onLike}
+      style={{ cursor: "pointer" }}
+    />
+  );
+
+  const filter = alreadyLiked.filter(res => res === id);
+  console.log(filter == id);
+  console.log(filter);
   return (
     <div className={more ? "homeInfo none" : "homeInfo"}>
       <div
@@ -21,14 +42,13 @@ const HomeInfo = props => {
         <div className="name">
           <h2>{house.name} </h2>
           <h4>
-            {" "}
             <span style={{ marginRight: "3vw" }}>
-              <FontAwesomeIcon
-                icon={faHeart}
-                color={liked ? "red" : "#333"}
-                onClick={onLike}
-              />
-              {""}
+              {alreadyLiked !== null
+                ? filter == id
+                  ? isLiked
+                  : notLiked
+                : notLiked}
+
               {house.likes}
             </span>
             {house.size} sqft
